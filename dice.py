@@ -35,10 +35,25 @@ class Dice():
         return self._checkForKind(2) and self._checkForKind(3)
 
     def checkSmallStraight(self):
-        pass
+        small_straight1 = [1,2,3,4]
+        small_straight2 = [2,3,4,5]
+        small_straight3 = [3,4,5,6]
+        values = [die.value for die in self.dice]
+        values1 = values[:4]
+        values2 = values[1:5]
+
+        result1 = values1 == small_straight1 or values2 == small_straight1
+        result2 = values1 == small_straight2 or values2 == small_straight2
+        result3 = values1 == small_straight3 or values2 == small_straight3
+
+        return result1 or result2 or result3
 
     def checkLargeStraight(self):
-        pass
+        large_straight1 = [1,2,3,4,5]
+        large_straight2 = [2,3,4,5,6]
+        values = [die.value for die in self.dice]
+        
+        return values == large_straight1 or values == large_straight2
 
     def checkYahtzee(self):
         return self.dice.count(self.dice[0]) == 5
