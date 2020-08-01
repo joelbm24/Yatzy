@@ -21,7 +21,7 @@ class Dice():
         dice_values = [die.value for die in self.dice]
         dice_values.sort()
         for value in dice_values:
-            if dice_values.count(value) == kind:
+            if dice_values.count(value) >= kind:
                 return True
         return False
 
