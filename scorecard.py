@@ -25,7 +25,7 @@ class Scorecard():
 
     def getPossibleLowerCard(self, dice):
         lower_card = self.lower_card
-        values = [die.value for die in dice]
+        values = [die.value for die in dice.dice]
         if lower_card["aces"] == None:
             lower_card["aces"] = values.count(1) * 1
 
@@ -48,7 +48,7 @@ class Scorecard():
 
     def getPossibleUpperCard(self, dice):
         upper_card = self.upper_card
-        values = [die.value for die in dice]
+        values = [die.value for die in dice.dice]
 
         if upper_card["triples"] == None:
             result = dice.checkThreeOfAKind()

@@ -17,12 +17,16 @@ class Dice():
         die = self.kept_dice.pop(index)
         self.dice.append(die)
 
-    def _checkForKind(self, kind):
+    def _checkForKind(self, kind, strict=False):
         dice_values = [die.value for die in self.dice]
         dice_values.sort()
         for value in dice_values:
-            if dice_values.count(value) >= kind:
-                return True
+            if strict:
+                if dice_values.count(value) == kind:
+                    return True
+            else:
+                if dice_values.count(value) >= kind:
+                    return True
         return False
 
     def checkThreeOfAKind(self):
@@ -32,7 +36,7 @@ class Dice():
         return self._checkForKind(4)
 
     def checkFullHouse(self):
-        return self._checkForKind(2) and self._checkForKind(3)
+        return self._checkForKind(2, strict=True) and self._checkForKind(3, strict=True)
 
     def checkSmallStraight(self):
         small_straight1 = [1,2,3,4]
