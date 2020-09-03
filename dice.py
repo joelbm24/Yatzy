@@ -22,10 +22,12 @@ class Dice():
         dice_values = [die.value for die in self.dice]
         dice_values.sort()
         for value in dice_values:
-            if dice_values.count(value) >= kind and strict == False:
-                return True
-            elif dice_values.count(value) == kind and strict:
-                return True
+            if strict:
+                if dice_values.count(value) == kind:
+                    return True
+            else:
+                if dice_values.count(value) >= kind:
+                    return True
         return False
 
     def checkThreeOfAKind(self):
