@@ -5,6 +5,7 @@ class Die():
         self.value = 0
         self._min = min
         self._max = max
+        self.kept = False
 
     def roll(self):
         self.value = random.randint(self._min, self._max)

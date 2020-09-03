@@ -3,25 +3,28 @@ from die import Die
 class Dice():
     def __init__(self):
         self.dice = [Die() for i in range(5)]
-        self.kept_dice = []
 
     def roll(self):
-        for die in self.dice:
+        dice = [die for die in self.dice if die.kept == False]
+        for die in dice:
             die.roll()
+    
+    def reset(self):
+        self.dice = [Die() for i in range(5)]
 
     def keep(self, index):
-        die = self.dice.pop(index)
-        self.kept_dice.append(die)
+        self.dice[index].kept = True
 
     def unkeep(self, index):
-        die = self.kept_dice.pop(index)
-        self.dice.append(die)
+        self.dice[index].kept = False
 
-    def _checkForKind(self, kind):
+    def _checkForKind(self, kind, strict=False):
         dice_values = [die.value for die in self.dice]
         dice_values.sort()
         for value in dice_values:
-            if dice_values.count(value) == kind:
+            if dice_values.count(value) >= kind and strict == False:
+                return True
+            elif dice_values.count(value) == kind and strict:
                 return True
         return False
 
@@ -32,13 +35,18 @@ class Dice():
         return self._checkForKind(4)
 
     def checkFullHouse(self):
-        return self._checkForKind(2) and self._checkForKind(3)
+        return self._checkForKind(2, strict=True) and self._checkForKind(3, strict=True)
 
     def checkSmallStraight(self):
         small_straight1 = [1,2,3,4]
         small_straight2 = [2,3,4,5]
         small_straight3 = [3,4,5,6]
-        values = [die.value for die in self.dice]
+        values = []
+        for die in self.dice:
+            if die.value not in values:
+                values.append(die.value)
+
+        values.sort()
         values1 = values[:4]
         values2 = values[1:5]
 
@@ -52,21 +60,25 @@ class Dice():
         large_straight1 = [1,2,3,4,5]
         large_straight2 = [2,3,4,5,6]
         values = [die.value for die in self.dice]
+        values.sort()
         
         return values == large_straight1 or values == large_straight2
 
     def checkYahtzee(self):
-        return self.dice.count(self.dice[0]) == 5
-
-    def _printDice(self, dice):
-        for die in dice:
-            index = dice.index(die)
-            print(index, "->", die.value)
+        values = self.getValues()
+        return values.count(values[0]) == 5
 
     def printDice(self):
-        self._printDice(self.dice)
+        print("DICE:")
+        for die in self.dice:
+            index = self.dice.index(die)
+            if die.kept:
+                value = "["+str(die.value)+"]"
+            else:
+                value = str(die.value)
+            print(index, "->", value)
 
-    def printKeptDice(self):
-        self._printDice(self.kept_dice)
+    def getValues(self):
+        return list( map(lambda die: die.value, self.dice) )
 
 
