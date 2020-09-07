@@ -239,7 +239,7 @@ def main(screen):
   curses.curs_set(0)
   curses.init_pair(1, curses.COLOR_RED, curses.COLOR_WHITE)
   screen.addstr(0,22,"YAHTZEE")
-  screen.addstr(22,0,"<q> Quit <ESC> Go Back")
+  screen.addstr(22,0,"<q> Quit <ESC> Go Back <ENTER> Select")
   possible_lower = {}
   possible_upper = {}
   cards_menu.drawLowerCard(scorecard)
@@ -254,7 +254,7 @@ def main(screen):
   while True:
     if scorecard.complete:
       action_menu.enabled = False
-      screen.addstr(22,26,"Finished",curses.color_pair(1))
+      screen.addstr(22,39,"Finished",curses.color_pair(1))
       screen.refresh()
 
     c = screen.getch()
