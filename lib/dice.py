@@ -1,4 +1,4 @@
-from die import Die
+from lib.die import Die
 
 class Dice():
     def __init__(self):

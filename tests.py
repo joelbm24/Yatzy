@@ -1,6 +1,6 @@
 import unittest
-from dice import Dice
-from scorecard import Scorecard
+from lib.dice import Dice
+from lib.scorecard import Scorecard
 
 class Helpers():
     def makeDiceFromList(self, dice, values):
