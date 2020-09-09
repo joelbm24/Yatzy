@@ -117,8 +117,8 @@ class Scorecard():
 
     def addUpperScore(self, category, dice):
         upper_scores = self.scoreUpper(dice)
-        self.addScore(category, upper_scores, self.upper_card)
         self.checkRepeatYahtzee(dice)
+        self.addScore(category, upper_scores, self.upper_card)
         self.updateTotals()
     
     def updateTotals(self):
