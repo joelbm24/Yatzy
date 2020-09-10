@@ -3,14 +3,20 @@ from lib.die import Die
 class Dice():
     def __init__(self):
         self.dice = [Die() for i in range(5)]
+        self.has_rolled = False
+        self.roll_amount = 0
 
     def roll(self):
         dice = [die for die in self.dice if die.kept == False]
+        self.has_rolled = True
+        self.roll_amount += 1
         for die in dice:
             die.roll()
     
     def reset(self):
         self.dice = [Die() for i in range(5)]
+        self.has_rolled = False
+        self.roll_amount = 0
 
     def keep(self, index):
         self.dice[index].kept = True

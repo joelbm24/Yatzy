@@ -131,24 +131,3 @@ class Scorecard():
         lower_complete = list(self.lower_card.values()).count(None) == 0
         upper_complete = list(self.upper_card.values()).count(None) == 0
         self.complete = lower_complete and upper_complete
-    
-    def printCard(self, card, with_option=False):
-        categories = list(card.keys())
-
-        for category in categories:
-            index = categories.index(category)
-            score = (card[category], "")[card[category] == None]
-            if with_option:
-                print(index, "->", category + ":", score)
-            else:
-                print(category + ":", score)
-
-    def printUpperCard(self, with_option=False):
-        print("UPPER:")
-        self.printCard(self.upper_card)
-        print("TOTAL:", self.total)
-
-    def printLowerCard(self, with_option=False):
-        print("LOWER:")
-        self.printCard(self.lower_card)
-        print("SUBTOTAL:", self.subtotal)
