@@ -19,7 +19,7 @@ class ActionMenu():
     self.has_rolled = False
     self.current_roll = 0
     self.action_window = curses.newwin(self.height-1,self.width-1,self.y+1,self.x+1)
-    rectangle(screen,y,x,y+self.height,x+self.width)
+    rectangle(self.screen,y,x,y+self.height,x+self.width)
   
   def _getAvailableActions(self):
     actions = (self.actions[:1], self.actions)[self.has_rolled]
