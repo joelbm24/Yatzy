@@ -19,6 +19,10 @@ Running the game is as simple as entering...
 $ python3 main.py
 ```
 
+Or if you don't want to go through the hassle of actually getting the code you could just go here.
+
+[Link to game on repl.it](https://Yatzy.joelbm24.repl.run)
+
 The game is controlled using:
 * **ENTER** for selection
 * **ARROW KEYS** for navigation
