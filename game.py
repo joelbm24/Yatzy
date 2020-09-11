@@ -59,7 +59,7 @@ class Game():
         highest_score = player.scorecard.total
         winner = player
 
-    return winner.name
+    return winner
 
   def run(self):
     complete_scorecards = [player.scorecard.complete for player in self.players]

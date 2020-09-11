@@ -28,7 +28,7 @@ def main(screen):
     elif current_screen == game and game.done:
       screen.clear()
       winner = game.getWinner()
-      finish_screen = FinishScreen(screen,winner)
+      finish_screen = FinishScreen(screen, winner)
       finish_screen.start()
       current_screen = finish_screen
 

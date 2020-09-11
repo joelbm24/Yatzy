@@ -36,16 +36,17 @@ class FinishScreen():
 
   def draw(self):
     self.clear()
-    self.window.addstr(0,0, "FINISHED! " + self.winner + " Won")
-    self.window.addstr(1,2, "REPLAY")
-    self.window.addstr(2,2, "QUIT")
+    self.window.addstr(0,0, "FINISHED! " + self.winner.name + " Won")
+    self.window.addstr(1,0, "Score: " + str(self.winner.scorecard.total))
+    self.window.addstr(2,2, "REPLAY")
+    self.window.addstr(3,2, "QUIT")
     
     self.writePointer()
 
     self.refresh()
 
   def writePointer(self):
-    self.window.addstr(self.selection+1,0,">")
+    self.window.addstr(self.selection+2,0,">")
 
   def handleInput(self, key):
     if key == curses.KEY_UP and self.selection > 0:
