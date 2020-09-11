@@ -36,7 +36,7 @@ class ActionMenu():
     self.action_window.addstr(9, 0, "Roll: "+str(self.current_roll))
 
   def clear(self):
-    self.action_window.clear()
+    self.action_window.erase()
   
   def refresh(self):
     self.screen.refresh()

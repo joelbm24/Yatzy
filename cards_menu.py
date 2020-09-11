@@ -54,8 +54,8 @@ class CardsMenu():
     self.upper_card_window.refresh()
 
   def clear(self):
-    self.lower_card_window.clear()
-    self.upper_card_window.clear()
+    self.lower_card_window.erase()
+    self.upper_card_window.erase()
 
   def handleInput(self, key):
     if key == curses.KEY_UP and self.card_pointer[1] > 0:

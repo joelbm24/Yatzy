@@ -58,7 +58,7 @@ class Game():
       if player.scorecard.total > highest_score:
         highest_score = player.scorecard.total
         winner = player
-    
+
     return winner.name
 
   def run(self):

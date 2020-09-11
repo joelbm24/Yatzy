@@ -24,12 +24,14 @@ def main(screen):
       game = Game(screen, player_select.amount)
       game.start()
       current_screen = game
+
     elif current_screen == game and game.done:
       screen.clear()
       winner = game.getWinner()
       finish_screen = FinishScreen(screen,winner)
       finish_screen.start()
       current_screen = finish_screen
+
     elif current_screen == finish_screen and finish_screen.done:
       screen.clear()
       player_select = PlayerSelectScreen(screen)

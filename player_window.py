@@ -24,14 +24,14 @@ class PlayerWindow():
         color = 3
       elif player.finished:
         color = 4
-      
+  
       self.window.addstr(0, current_x, player.name, curses.color_pair(color))
       current_x += len(player.name) + 3
 
     self.refresh()
   
   def clear(self):
-    self.window.clear()
+    self.window.erase()
 
   def refresh(self):
     self.screen.refresh()

@@ -22,7 +22,7 @@ class InfoWindow():
     self.refresh()
   
   def clear(self):
-    self.window.clear()
+    self.window.erase()
 
   def refresh(self):
     self.screen.refresh()

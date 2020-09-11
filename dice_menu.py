@@ -65,7 +65,7 @@ class DiceMenu():
     self.roll_window.refresh()
 
   def clear(self):
-    self.roll_window.clear()
+    self.roll_window.erase()
 
   def handleInput(self, key):
     if key == 27: # ESC KEY
