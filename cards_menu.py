@@ -16,8 +16,10 @@ class CardsMenu():
     self.dice = None
     self.scorecard = None
     self.lower_card_window = curses.newwin(self.height-1,self.width-1,y+1,x+1)
+    self.lower_card_window.bkgd(' ', curses.color_pair(0) | curses.A_BOLD)
     rectangle(screen,y,x,y+self.height,x+self.width)
     self.upper_card_window = curses.newwin(self.height-1,self.width-1,y+1,x+2+self.width)
+    self.upper_card_window.bkgd(' ', curses.color_pair(0) | curses.A_BOLD)
     rectangle(screen,y,x+1+self.width,y+self.height,x+1+(self.width*2))
 
   def writeCardToWindow(self, window, card, possible_card={}):

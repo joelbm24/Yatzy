@@ -76,16 +76,6 @@ class Dice():
         values = self.getValues()
         return values.count(values[0]) == 5
 
-    def printDice(self):
-        print("DICE:")
-        for die in self.dice:
-            index = self.dice.index(die)
-            if die.kept:
-                value = "["+str(die.value)+"]"
-            else:
-                value = str(die.value)
-            print(index, "->", value)
-
     def getValues(self):
         return list( map(lambda die: die.value, self.dice) )
 

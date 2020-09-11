@@ -6,7 +6,7 @@ from finish_screen import FinishScreen
 
 def main(screen):
   curses.curs_set(0)
-  curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)
+  curses.init_pair(1, curses.COLOR_RED, curses.COLOR_WHITE)
   curses.init_pair(2, curses.COLOR_WHITE, curses.COLOR_RED)
   curses.init_pair(3, curses.COLOR_BLACK, curses.COLOR_WHITE)
   curses.init_pair(4, curses.COLOR_RED, curses.COLOR_BLACK)
