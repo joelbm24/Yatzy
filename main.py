@@ -1,8 +1,11 @@
-import curses
+import curses, os
 from curses import wrapper
 from lib.ui.game import Game
 from lib.ui.player_select import PlayerSelectScreen
 from lib.ui.finish_screen import FinishScreen
+
+def shorten_esc_delay():
+  os.environ.setdefault("ESCDELAY", '25')
 
 def main(screen):
   curses.curs_set(0)
@@ -40,4 +43,5 @@ def main(screen):
 
     current_screen.run()
 
+shorten_esc_delay()
 wrapper(main)

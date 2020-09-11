@@ -1,10 +1,11 @@
 import curses
 from curses.textpad import rectangle
+from lib.ui.info_window import InfoWindow
 
 class PlayerSelectScreen():
   def __init__(self, screen):
     self.x = 0
-    self.y = 0
+    self.y = 1
     self.width = 47
     self.height = 11
     self.amount = 1
@@ -13,10 +14,14 @@ class PlayerSelectScreen():
     self.quit = False
     self.screen = screen
     self.window = curses.newwin(self.height-1,self.width-1,self.y+1,self.x+1)
+    self.info_window = InfoWindow(screen, 13, 0)
+    self.info_window.help_message = "<Q> Quit <ENTER> Select"
     rectangle(screen,self.y,self.x,self.y+self.height,self.x+self.width)
 
   def start(self):
+    self.screen.addstr(0,22,"YATZY")
     self.draw()
+    self.info_window.draw()
 
   def run(self):
     key = self.screen.getch()

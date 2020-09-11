@@ -10,7 +10,7 @@ class InfoWindow():
     self.error = False
     self.window = curses.newwin(self.height, self.width, self.x, self.y)
 
-    self.help_message = "<q> Quit <ESC> Back <ENTER> Select"
+    self.help_message = "<Q> Quit <ENTER> Select <ESC> Back"
 
   def draw(self):
     self.clear()

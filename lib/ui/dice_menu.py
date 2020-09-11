@@ -19,15 +19,7 @@ class DiceMenu():
     self.roll_window = curses.newwin(self.height-1,self.width-1,self.y+1,self.x+1)
     rectangle(screen,y,x,y+self.height,self.width)
 
-  def drawDie(self, window, y, x, value):
-    dot = u'\u2219'
-    hl = u'\u2500'
-    vl = u'\u2502'
-    ltc = u'\u250c'
-    rtc = u'\u2510'
-    lbc = u'\u2514'
-    rbc = u'\u2518'
-    faces = {
+    self._faces = {
       0: [[0,0,0], [0,0,0], [0,0,0]],
       1: [[0,0,0], [0,1,0], [0,0,0]],
       2: [[0,0,1], [0,0,0], [1,0,0]],
@@ -36,7 +28,17 @@ class DiceMenu():
       5: [[1,0,1], [0,1,0], [1,0,1]],
       6: [[1,0,1], [1,0,1], [1,0,1]]
     }
-    face = faces[value]
+
+  def drawDie(self, window, y, x, value):
+    dot = u'\u2219'
+    hl = u'\u2500'
+    vl = u'\u2502'
+    ltc = u'\u250c'
+    rtc = u'\u2510'
+    lbc = u'\u2514'
+    rbc = u'\u2518'
+
+    face = self._faces[value]
     current_line = y+1
     window.addstr(y, x, ltc+(hl*5)+rtc)
     for row in face:
@@ -51,12 +53,11 @@ class DiceMenu():
 
   def drawDice(self):
     current_x = 3
+    checkbox = ""
     for die in self.dice:
       self.drawDie(self.roll_window,0,current_x, die.value)
-      if die.kept:
-        self.roll_window.addstr(5,current_x+2,"[X]")
-      else:
-        self.roll_window.addstr(5,current_x+2,"[ ]")
+      checkbox = ("[ ]", "[X]")[die.kept]
+      self.roll_window.addstr(5,current_x+2,checkbox)
       current_x += 8
 
   def writePointer(self):

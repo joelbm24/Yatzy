@@ -177,9 +177,9 @@ class Game():
   def diceBack(self):
     self.dice_menu.unfocus()
     self.action_menu.focus()
-
-    self.action_menu.draw()
+    
     self.dice_menu.draw()
+    self.action_menu.draw()
 
     self.current_window = self.action_menu
 
