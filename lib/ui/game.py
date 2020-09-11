@@ -22,7 +22,7 @@ class Game():
     self.dice_menu = DiceMenu(screen, 13, 0)
     self.action_menu = ActionMenu(screen, 1, 34)
     self.player_window = PlayerWindow(screen, 22, 0, self.players)
-    self.info_window = InfoWindow(screen, 25, 0)
+    self.info_window = InfoWindow(screen, 26, 0)
 
     self.scorecard = self.players[self.current_player].scorecard
     self.dice = self.players[self.current_player].dice
@@ -177,7 +177,7 @@ class Game():
   def diceBack(self):
     self.dice_menu.unfocus()
     self.action_menu.focus()
-    
+
     self.dice_menu.draw()
     self.action_menu.draw()
 

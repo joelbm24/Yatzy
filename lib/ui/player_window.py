@@ -6,7 +6,7 @@ class PlayerWindow():
     self.x = x
     self.y = y
     self.width = 47
-    self.height = 2
+    self.height = 3
     self.screen = screen
     self.players = players
     self.current_player = 0
@@ -26,6 +26,7 @@ class PlayerWindow():
         color = 4
   
       self.window.addstr(0, current_x, player.name, curses.color_pair(color))
+      self.window.addstr(1, current_x, str(player.scorecard.total))
       current_x += len(player.name) + 3
 
     self.refresh()
