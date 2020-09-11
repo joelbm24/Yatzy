@@ -1,7 +1,7 @@
 # Yatzy in the terminal!
 Yatzy is a curses application written in Python that lets you play the classic dice game right in your terminal.
 
-![Game Play Image](.images/game.png)
+<img src=".images/game.png" width="300">
 
 ---
 
