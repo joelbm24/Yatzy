@@ -30,7 +30,7 @@ class Game():
     self.current_window = self.action_menu
   
   def start(self):
-    self.screen.addstr(0,22,"YAHTZEE")
+    self.screen.addstr(0,22,"YATZY")
     self.action_menu.focus()
     self.cards_menu.updateInfo(self.scorecard, self.dice)
     self.action_menu.updateInfo(self.dice)

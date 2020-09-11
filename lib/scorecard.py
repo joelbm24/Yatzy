@@ -22,7 +22,7 @@ class Scorecard():
             "full": None,
             "small": None,
             "large": None,
-            "yahtzee": None,
+            "yatzy": None,
             "chance": None
         }
 
@@ -43,7 +43,7 @@ class Scorecard():
 
     def checkRepeatYahtzee(self, dice):
         is_repeat = dice.checkYahtzee()
-        is_yahtzee = self.upper_card["yahtzee"] == 50
+        is_yahtzee = self.upper_card["yatzy"] == 50
 
         if is_repeat and is_yahtzee:
             return self._repeat_yahtzees.append(100)
@@ -106,9 +106,9 @@ class Scorecard():
             result = dice.checkLargeStraight()
             upper_card["large"] = (0, 40)[result]
 
-        if upper_card["yahtzee"] == None:
+        if upper_card["yatzy"] == None:
             result = dice.checkYahtzee()
-            upper_card["yahtzee"] = (0, 50)[result]
+            upper_card["yatzy"] = (0, 50)[result]
 
         if upper_card["chance"] == None:
             upper_card["chance"] = sum(values)

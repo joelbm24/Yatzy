@@ -103,7 +103,7 @@ class TestScorecardMethods(unittest.TestCase):
         test_values = [2,2,2,2,2]
         self.dice = self.helpers.makeDiceFromList(self.dice, test_values)
         upper_card = self.scorecard.scoreUpper(self.dice)
-        self.assertEqual(upper_card["yahtzee"], 50)
+        self.assertEqual(upper_card["yatzy"], 50)
 
     def test_add_score(self):
         test_values = [1,1,1,1,2]
