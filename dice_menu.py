@@ -42,7 +42,9 @@ class DiceMenu():
     for row in face:
       srow = [str(i) for i in row]
       s = ''.join(srow).replace('1', dot).replace('0', ' ')
-      window.addstr(current_line, x, vl+" "+s+" "+vl)
+      window.addstr(current_line, x, vl)
+      window.addstr(current_line, x+1, " "+s+" ", curses.color_pair(1))
+      window.addstr(current_line, x+6, vl)
       current_line += 1
     
     window.addstr(current_line, x, lbc+(hl*5)+rbc)
