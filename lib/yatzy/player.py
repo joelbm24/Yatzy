@@ -1,5 +1,5 @@
-from lib.dice import Dice
-from lib.scorecard import Scorecard
+from lib.yatzy.dice import Dice
+from lib.yatzy.scorecard import Scorecard
 
 class Player():
   def __init__(self, name):

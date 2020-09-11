@@ -1,6 +1,6 @@
 import unittest
-from lib.dice import Dice
-from lib.scorecard import Scorecard
+from lib.yatzy.dice import Dice
+from lib.yatzy.scorecard import Scorecard
 
 class Helpers():
     def makeDiceFromList(self, dice, values):

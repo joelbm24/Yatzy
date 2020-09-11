@@ -1,14 +1,14 @@
 import curses
 from curses import wrapper
 from curses.textpad import rectangle
-from lib.dice import Dice
-from lib.scorecard import Scorecard
-from lib.player import Player
-from action_menu import *
-from dice_menu import *
-from cards_menu import *
-from info_window import *
-from player_window import *
+from lib.yatzy.dice import Dice
+from lib.yatzy.scorecard import Scorecard
+from lib.yatzy.player import Player
+from lib.ui.action_menu import *
+from lib.ui.dice_menu import *
+from lib.ui.cards_menu import *
+from lib.ui.info_window import *
+from lib.ui.player_window import *
 
 class Game():
   def __init__(self, screen, amount_of_players):

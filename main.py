@@ -1,8 +1,8 @@
 import curses
 from curses import wrapper
-from game import Game
-from player_select import PlayerSelectScreen
-from finish_screen import FinishScreen
+from lib.ui.game import Game
+from lib.ui.player_select import PlayerSelectScreen
+from lib.ui.finish_screen import FinishScreen
 
 def main(screen):
   curses.curs_set(0)

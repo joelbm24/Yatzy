@@ -1,4 +1,4 @@
-from lib.die import Die
+from lib.yatzy.die import Die
 
 class Dice():
     def __init__(self):
